@@ -13,7 +13,7 @@ def download_file(url, file_name):
     return file_name
 	
 #from os.path import getsize
-APK = "https://d.apkpure.com/b/APK/com.weo.projectz?versionCode=5&nc=arm64-v8a%2Carmeabi-v7a&sv=21"
+APK = "https://d-06.winudf.com/b/APK/Y29tLndlby5wcm9qZWN0el81XzZiZmZkNGJm?_fn=SkFDTyAtINis2KfZg9mIXzEuMC4wX0Fwa3B1cmUuYXBr&_p=Y29tLndlby5wcm9qZWN0eg%3D%3D&is_hot=false&k=9b7cff9dcc863fe4244dda214d8abb996575a260"
 apk_name = download_file(APK, "jaco.1.0.0.0.apk")
 outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
