@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.insert(0, 'deobfuscator')
 import deobfuscator,sys,requests
-
+import subprocess
 def download_file(url):
     get_response = requests.get(url,stream=True)
     file_name  = url.split("/")[-1]
