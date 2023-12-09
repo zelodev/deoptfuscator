@@ -15,10 +15,10 @@ jobs:
     
     - name: Install
       run: |
-       sudo apt-get install libboost-all-dev libjsoncpp-dev openjdk-11-jdk zipalign apksigner
+       sudo apt-get install libboost-all-dev libjsoncpp-dev openjdk-11-jdk zipalign apksigner apksigner
        sudo dpkg --add-architecture i386
        sudo apt-get update
-       sudo apt-get install libc6:i386 libstdc++6:i386
+       sudo apt-get install libc6:i386 libstdc++6:i386 apktool
        curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
        sudo apt install git-lfs
        source ./launch.sh
