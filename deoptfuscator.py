@@ -19,7 +19,7 @@ outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
 os.system("rm -rf .apk .std* .profile meta")
-subprocess.call("apktool d -r -s " + apk_name  + " -o .apk")
+subprocess.call("java -jar tools/apktool.jar d -r -s " + apk_name  + " -o .apk")
 dex_li = [a for a in os.listdir(".apk") if a.endswith(".dex") and a.startswith("classes")]
 os.mkdir(".apk/const")
 #os.makedirs(outpath, exist_ok=True)
@@ -32,7 +32,7 @@ for dex in dex_li:
 
 apk_name = apk_name.replace(".apk", "_deobfuscated.apk")
 apk_name = os.path.basename(apk_name)
-subprocess.call("apktool b ./.apk -o " + apk_name)
+subprocess.call("java -jar tools/apktool.jar b ./.apk -o " + apk_name)
 
 subprocess.call("zipalign -f -v 4 " + apk_name + " " + apk_name.replace(".apk", "_align.apk"))
 subprocess.call("apksigner sign --ks deoptfuscator.keystore --ks-pass pass:123456 " + apk_name.replace(".apk", "_align.apk"))
