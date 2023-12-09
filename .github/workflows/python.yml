@@ -33,5 +33,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
-          name: app_patched
-          path: "app_patched.apk"
+          name: jaco
+          path: "jaco.1.0.0.0_deobfuscated_align.apk"
