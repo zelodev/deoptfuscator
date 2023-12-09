@@ -2,15 +2,21 @@
 import sys
 import os
 sys.path.insert(0, 'deobfuscator')
-import deobfuscator
-import sys
-#from os.path import getsize
+import deobfuscator,sys,requests
 
-if len(sys.argv) != 2:
-    print("Insufficient arguments")
-    sys.exit()
-apk_name = sys.argv[1]
-outpath = "de"+sys.argv[1]
+def download_file(url):
+    get_response = requests.get(url,stream=True)
+    file_name  = url.split("/")[-1]
+    with open(file_name, 'wb') as f:
+        for chunk in get_response.iter_content(chunk_size=1024):
+            if chunk: # filter out keep-alive new chunks
+                f.write(chunk)
+    return file_name
+	
+#from os.path import getsize
+APK = "https://d.apkpure.com/b/APK/com.weo.projectz?versionCode=5&nc=arm64-v8a%2Carmeabi-v7a&sv=21"
+apk_name = download_file(APK)
+outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
 os.system("rm -rf .apk .std* .profile meta")
