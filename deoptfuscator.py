@@ -19,7 +19,7 @@ apk_name = download_file(APK)
 outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
-subprocess.call("rm -rf .apk .std* .profile meta")
+os.system("rm -rf .apk .std* .profile meta")
 subprocess.call("apktool d -r -s " + apk_name  + " -o .apk")
 dex_li = [a for a in os.listdir(".apk") if a.endswith(".dex") and a.startswith("classes")]
 os.mkdir(".apk/const")
