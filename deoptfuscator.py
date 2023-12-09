@@ -20,7 +20,7 @@ outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
 os.system("rm -rf .apk .std* .profile meta")
-os.system("java -jar $TOOLS/apktool.jar d -r -s " + apk_name  + " -o .apk")
+os.system("java -jar apktool.jar d -r -s " + apk_name  + " -o .apk")
 dex_li = [a for a in os.listdir(".apk") if a.endswith(".dex") and a.startswith("classes")]
 os.mkdir(".apk/const")
 #os.makedirs(outpath, exist_ok=True)
