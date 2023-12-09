@@ -22,7 +22,7 @@ os.system("java -jar tools/apktool.jar d -r -s " + apk_name  + " -o .apk")
 dex_li = [a for a in os.listdir(".apk") if a.endswith(".dex") and a.startswith("classes")]
 os.mkdir(".apk/const")
 #os.makedirs(outpath, exist_ok=True)
-
+print(dex_li)
 for dex in dex_li:
 	deobfuscator.main(".apk/"+dex)
 	os.system("tools/redex-all -c tools/default.config .apk/const/const.dex -o .apk/const")
