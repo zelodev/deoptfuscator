@@ -13,8 +13,8 @@ def download_file(url, file_name):
 
 os.environ['ANDROID_HOST_OUT'] = os.path.join(os.getcwd(), "android")
 APK = "https://d-06.winudf.com/b/APK/Y29tLndlby5wcm9qZWN0el81XzZiZmZkNGJm?_fn=SkFDTyAtINis2KfZg9mIXzEuMC4wX0Fwa3B1cmUuYXBr&_p=Y29tLndlby5wcm9qZWN0eg%3D%3D&is_hot=false&k=9b7cff9dcc863fe4244dda214d8abb996575a260"
-APK = "https://d-07.winudf.com/b/APK/Y29tLmJldDM2NS5hdXRoZW50aWNhdG9yXzdfMTVhOGU5NmM?_fn=YmV0MzY1IEF1dGhlbnRpY2F0b3JfMS4wN19BcGtwdXJlLmFwaw&_p=Y29tLmJldDM2NS5hdXRoZW50aWNhdG9y&download_id=no_1129709056309079&is_hot=false&k=a7ea2d886d42c43fd21b8e0ab3d956936581693b"
-apk_name = "jaco.1.0.0.0.apk" #download_file(APK, "bet365.apk")
+APK = "https://r2-static-assets.androidapksfree.com/sdata/27803efbc59a913dfa22a9432237705c/com.snapchat.android_v11.79.0.34-84609_Android-4.4.apk"
+apk_name = download_file(APK, "jaco.1.0.0.0.apk")
 outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
