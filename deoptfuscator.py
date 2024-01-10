@@ -12,8 +12,7 @@ def download_file(url, file_name):
     return file_name
 
 os.environ['ANDROID_HOST_OUT'] = os.path.join(os.getcwd(), "android")
-APK = "https://d-06.winudf.com/b/APK/Y29tLndlby5wcm9qZWN0el81XzZiZmZkNGJm?_fn=SkFDTyAtINis2KfZg9mIXzEuMC4wX0Fwa3B1cmUuYXBr&_p=Y29tLndlby5wcm9qZWN0eg%3D%3D&is_hot=false&k=9b7cff9dcc863fe4244dda214d8abb996575a260"
-APK = "https://r2-static-assets.androidapksfree.com/sdata/27803efbc59a913dfa22a9432237705c/com.snapchat.android_v11.79.0.34-84609_Android-4.4.apk"
+APK = "https://files.modyolo.com/Hiya/Hiya%20v12.1.0-9677%20[Premium]-X%20(2).apk"
 apk_name = download_file(APK, "jaco.1.0.0.0.apk")
 outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
