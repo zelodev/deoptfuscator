@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
           name: jaco
-          path: "jaco.1.0.0.0_deobfuscated_align.apk"
+          path: "dz.aadl.aadl_deobfuscated_align.apk"
