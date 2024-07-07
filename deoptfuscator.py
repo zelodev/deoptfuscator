@@ -13,7 +13,7 @@ def download_file(url, file_name):
 
 os.environ['ANDROID_HOST_OUT'] = os.path.join(os.getcwd(), "android")
 APK = "https://files.modyolo.com/Hiya/Hiya%20v12.1.0-9677%20[Premium]-X%20(2).apk"
-apk_name = download_file(APK, "jaco.1.0.0.0.apk")
+apk_name = "dz.aadl.aadl.apk" #download_file(APK, "jaco.1.0.0.0.apk")
 outpath = apk_name.replace(".apk", "de.apk")
 tmp = outpath.split("/")[-1]
 outpath = outpath.replace(tmp, "")
