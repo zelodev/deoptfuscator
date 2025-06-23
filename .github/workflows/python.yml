@@ -5,31 +5,39 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Install
+
+    - name: Cache APT packages
+      uses: actions/cache@v4
+      with:
+        path: /var/cache/apt/archives
+        key: ${{ runner.os }}-apt-${{ hashFiles('**/launch.sh') }}
+        restore-keys: |
+          ${{ runner.os }}-apt-
+
+    - name: Setup APT dependencies
       run: |
-       sudo apt-get install libboost-all-dev libjsoncpp-dev openjdk-11-jdk zipalign apksigner apksigner
-       sudo dpkg --add-architecture i386
-       sudo apt-get update
-       sudo apt-get install libc6:i386 libstdc++6:i386 apktool
-       curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-       sudo apt install git-lfs
-       source ./launch.sh
-      
-      
-    - name: Run
+        sudo dpkg --add-architecture i386
+        sudo apt-get update
+        sudo apt-get install -y libboost-all-dev libjsoncpp-dev openjdk-11-jdk zipalign apksigner libc6:i386 libstdc++6:i386 apktool
+        curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+        sudo apt-get install -y git-lfs
+
+    - name: Run setup script
+      run: source ./launch.sh
+
+    - name: Run deoptfuscator
       run: python3 deoptfuscator.py
-      
-    - name: Run
-      run: ls
-      
-    - name: Upload
+
+    - name: Show output
+      run: ls -lh
+
+    - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
-          name: jaco
-          path: "dz.aadl.aadl_deobfuscated_align.apk"
+        name: deobfuscated-apk
+        path: |
+          *deobfuscated_align.apk
